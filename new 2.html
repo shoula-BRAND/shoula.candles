@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>She Beauty | عالم الأناقة والجمال</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* الأساسيات وتحسين الألوان */
+        :root {
+            --primary-color: #ff85a2;
+            --primary-hover: #f16b8d;
+            --secondary-color: #fef1f3;
+            --dark-color: #2b2d42;
+            --gray-color: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(255, 133, 162, 0.15);
+            --transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        body {
+            background-color: #fffafb;
+            color: var(--dark-color);
+            overflow-x: hidden;
+        }
+
+        /* أنيميشن الدخول */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        /* الهيدر (Header) */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 20px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--dark-color);
+        }
+
+        /* السكشن الرئيسي (Hero Section) */
+        .hero {
+            margin-top: 80px;
+            padding: 100px 5% 60px;
+            text-align: center;
+            background: linear-gradient(135deg, #fff5f7 0%, #fef1f3 100%);
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            color: var(--dark-color);
+            margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--gray-color);
+            max-width: 600px;
+            margin: 0 auto 30px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        /* الحاوية الرئيسية (Main Container) */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        /* جعل الفورم عبارة عن شبكة تجمع الكارت والتشيك أوت */
+        .main-form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .main-form {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 { font-size: 32px; }
+        }
+
+        /* كروت الأقسام (Cards) */
+        .card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 35px;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 133, 162, 0.1);
+            transition: var(--transition);
+            animation: fadeInUp 1.2s ease-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(255, 133, 162, 0.25);
+        }
+
+        .card-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: var(--primary-color);
+        }
+
+        /* عناصر الفورم (Form Elements) */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            font-size: 14px;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            font-size: 15px;
+            transition: var(--transition);
+            outline: none;
+            background-color: var(--light-gray);
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            background-color: var(--white);
+            box-shadow: 0 0 0 4px rgba(255, 133, 162, 0.1);
+        }
+
+        /* مخصص لرفع الملفات */
+        .file-upload {
+            position: relative;
+            display: block;
+            border: 2px dashed var(--primary-color);
+            padding: 30px 20px;
+            text-align: center;
+            border-radius: 12px;
+            cursor: pointer;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .file-upload:hover {
+            background-color: #fde2e7;
+        }
+
+        .file-upload input[type="file"] {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .file-upload i {
+            font-size: 32px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* معاينة الصورة */
+        .image-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            object-fit: cover;
+            margin-top: 15px;
+            display: none;
+            border: 2px solid var(--primary-color);
+            animation: pulse 2s infinite;
+        }
+
+        /* خيارات الدفع (Radio Buttons) */
+        .payment-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .payment-option {
+            border: 2px solid #f0f0f0;
+            border-radius: 12px;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .payment-option input {
+            accent-color: var(--primary-color);
+        }
+
+        .payment-option:hover {
+            border-color: var(--primary-color);
+        }
+
+        /* الأزرار (Buttons) */
+        .btn {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #f16b8d 100%);
+            color: var(--white);
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(255, 133, 162, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 133, 162, 0.5);
+        }
+
+        /* رسالة نجاح مخصصة */
+        .success-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.4s ease;
+        }
+
+        .success-overlay.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .success-card {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.7);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .success-overlay.active .success-card {
+            transform: scale(1);
+        }
+
+        .success-card i {
+            font-size: 60px;
+            color: #2ec4b6;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">She <span>Beauty</span></div>
+        <div style="font-size: 18px; color: var(--primary-color);"><i class="fa-solid fa-bag-shopping"></i></div>
+    </header>
+
+    <section class="hero">
+        <h1>صممي تجربة تسوقك مع <span>She Beauty</span></h1>
+        <p>ارفعي صورة المنتج المفضل لديكِ وضعي الرابط الخاص به، وسنتولى نحن بقية التفاصيل لتصلكِ حتى باب المنزل.</p>
+    </section>
+
+    <main class="container">
+        <form id="order-form" action="https://formspree.io/f/mqejdpkp" method="POST" class="main-form">
+            
+            <section class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-cart-plus"></i>
+                    <h2>كارت المنتج الخاص بكِ</h2>
+                </div>
+                
+                <div class="form-group">
+                    <label>صورة المنتج</label>
+                    <label class="file-upload">
+                        <i class="fa-solid fa-cloud-arrow-up"></i>
+                        <p id="upload-text">اضغطي هنا لرفع صورة المنتج</p>
+                        <input type="file" name="صورة المنتج" id="product-image" accept="image/*" required>
+                    </label>
+                    <img id="preview" class="image-preview" alt="معاينة المنتج">
+                </div>
+
+                <div class="form-group">
+                    <label for="product-link">رابط (لينك) المنتج</label>
+                    <input type="url" name="رابط المنتج" id="product-link" class="form-control" placeholder="https://example.com/product" required>
+                </div>
+            </section>
+
+            <section class="card">
+                <div class="card-title">
+                    <i class="fa-solid fa-credit-card"></i>
+                    <h2>تفاصيل الشحن والدفع (Checkout)</h2>
+                </div>
+
+                <div class="form-group">
+                    <label for="full-name">الاسم بالكامل</label>
+                    <input type="text" name="الاسم" id="full-name" class="form-control" placeholder="الاسم ثلاثي" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone-number">رقم الهاتف</label>
+                    <input type="tel" name="رقم الهاتف" id="phone-number" class="form-control" placeholder="01xxxxxxxxx" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="address">العنوان بالتفصيل</label>
+                    <textarea name="العنوان" id="address" class="form-control" rows="3" placeholder="المحافظة، المدينة، اسم الشارع، رقم العقار" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>طريقة الدفع المفضلة</label>
+                    <div class="payment-options">
+                        <label class="payment-option">
+                            <input type="radio" name="طريقة الدفع" value="الدفع عند الاستلام" checked>
+                            <span>الدفع عند الاستلام</span>
+                        </label>
+                        <label class="payment-option">
+                            <input type="radio" name="طريقة الدفع" value="محفظة إلكترونية">
+                            <span>محفظة إلكترونية</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="notes">ملاحظات إضافية (اختياري)</label>
+                    <textarea name="ملاحظات" id="notes" class="form-control" rows="2" placeholder="أي تفاصيل أخرى تريدين إخبارنا بها..."></textarea>
+                </div>
+
+                <button type="submit" class="btn" id="submit-btn">تأكيد الطلب الآن</button>
+            </section>
+            
+        </form>
+    </main>
+
+    <div class="success-overlay" id="successModal">
+        <div class="success-card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h2>شكراً لطلبكِ</h2>
+            <p style="color: var(--gray-color); margin-top: 10px; font-size: 16px; font-weight: 600;">سيتم تواصل معكِ من فريق العمل بأسرع وقت.</p>
+            <button class="btn" style="margin-top: 20px; background: var(--dark-color);" onclick="closeModal()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        // ميكانيكية رفع صورة المنتج ومعاينتها فورياً
+        const imageInput = document.getElementById('product-image');
+        const previewImage = document.getElementById('preview');
+        const uploadText = document.getElementById('upload-text');
+
+        imageInput.addEventListener('change', function() {
+            const file = this.files[0];
+            if (file) {
+                const reader = new FileReader();
+                uploadText.textContent = `تم اختيار: ${file.name}`;
+                
+                reader.addEventListener('load', function() {
+                    previewImage.setAttribute('src', this.result);
+                    previewImage.style.display = 'block';
+                });
+                
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // ربط إرسال الفورم بـ Formspree عبر AJAX لمنع الانتقال لصفحة خارجية وإظهار البوب اب الخاص بكِ
+        const form = document.getElementById('order-form');
+        const submitBtn = document.getElementById('submit-btn');
+        const modal = document.getElementById('successModal');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // منع إعادة تحميل الصفحة الافتراضية
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'جاري إرسال طلبكِ...';
+
+            const formData = new FormData(form);
+
+            // إرسال البيانات خلف الكواليس لـ Formspree
+            fetch(form.action, {
+                method: form.method,
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            }).then(response => {
+                if (response.ok) {
+                    // إظهار نافذة النجاح المخصصة
+                    modal.classList.add('active');
+                } else {
+                    alert('عذراً، حدث خطأ أثناء إرسال الطلب. يرجى المحاولة مرة أخرى.');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'تأكيد الطلب الآن';
+                }
+            }).catch(error => {
+                alert('حدث خطأ في الاتصال بالشبكة. يرجى التحقق من الإنترنت.');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'تأكيد الطلب الآن';
+            });
+        });
+
+        // إغلاق بوب اب النجاح وإعادة تعيين الفورم لطلب جديد
+        function closeModal() {
+            modal.classList.remove('active');
+            form.reset();
+            previewImage.style.display = 'none';
+            uploadText.textContent = "اضغطي هنا لرفع صورة المنتج";
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'تأكيد الطلب الآن';
+        }
+    </script>
+</body>
+</html>
